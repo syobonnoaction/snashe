@@ -15,6 +15,26 @@
       h1, h2 { color: #fff; text-align: center; }
       #fullscreen-btn { margin: 20px; }
       a { color: #66c; }
+      @keyframes pixelate {
+	from {
+	  filter: blur(0);
+	  transform: scale(1);
+	  transform: translate(-50%, -50%);
+	  opacity: 1;
+	}
+	to {
+	  filter: blur(8px);
+	  transform: scale(0.9);
+	  transform: translate(-50%, -50%);
+	  opacity: 0;
+	}
+      }
+      .popup-hide {
+	animation: pixelate 0.3s ease-in forwards;
+      }
+      #countdown {
+	transition: opacity 0.2s ease-in-out;
+      }
     </style>
   </head>
   <body>
@@ -6797,6 +6817,8 @@ run();
     <script>  
 	function forceStart() {  
 	  const canvas = document.getElementById("canvas");  
+	  const alertBox = document.getElementById("alertBox")
+	  alertBox.classList.add("popup-hide");
 	  canvas.focus();    
 	  setTimeout(() => {  
 	    const event = new KeyboardEvent("keydown", {  
