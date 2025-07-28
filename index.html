@@ -6799,12 +6799,6 @@ run();
         ga('create', 'UA-42392611-1', 'int3.github.io');
         ga('send', 'pageview');
     </script>
-    <script type="text/javascript">
-	    function simulateEnter() {
-		    document.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
-	  	  document.getElementById("start-button").style.display = "none";
-	    }
-    </script>
     <script>  
 	function forceStart() {  
 	  const canvas = document.getElementById("canvas");  
@@ -6818,7 +6812,8 @@ run();
 		bubbles: true  
 	    });    
 	    canvas.dispatchEvent(event);  
-	  }, 100); // petit délai de sécurité  
+	  }, 100); // petit délai de sécurité
+	  document.getElementById("start-button").style.display = "none";
 	}  
 	</script>
   </body>
