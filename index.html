@@ -32,7 +32,7 @@
       <br/>
     </div>
     <div id="start-button" style="text-align: center; margin-top: 20px;">
-      <button onclick="simulateEnter()">▶ Démarrer</button>
+      <button onclick="forceStart()">▶ Démarrer</button>
     </div>
     <script type='text/javascript'>
       // connect to canvas
@@ -6805,5 +6805,21 @@ run();
 	  	  document.getElementById("start-button").style.display = "none";
 	    }
     </script>
+    <script>  
+	function forceStart() {  
+	  const canvas = document.getElementById("canvas");  
+	  canvas.focus();    
+	  setTimeout(() => {  
+	    const event = new KeyboardEvent("keydown", {  
+		key: "Enter",  
+		keyCode: 13,  
+		which: 13,  
+		code: "Enter",  
+		bubbles: true  
+	    });    
+	    canvas.dispatchEvent(event);  
+	  }, 100); // petit délai de sécurité  
+	}  
+	</script>
   </body>
 </html>
